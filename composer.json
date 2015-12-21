@@ -1,6 +1,6 @@
 {
 	"name": "ipunkt/subscriptions",
-	"description": "Subscription handling package for laravel applications",
+	"description": "Subscription handling package for laravel 5 applications",
 	"keywords": [
 		"laravel",
 		"php",
@@ -15,11 +15,9 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4.0",
-		"illuminate/support": "4.2.*",
-		"illuminate/database": "4.2.*",
+		"php": ">=5.5.9",
 		"laracasts/commander": "~1.0",
-		"nesbot/carbon": "~1.0"
+		"nesbot/carbon": "~1.14"
 	},
 	"autoload": {
 		"psr-4": {
