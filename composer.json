@@ -1,5 +1,5 @@
 {
-	"name": "ipunkt/subscriptions",
+	"name": "vvMalko/subscriptions",
 	"description": "Subscription handling package for laravel 5 applications",
 	"keywords": [
 		"laravel",
@@ -10,8 +10,8 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Robert Kummer",
-			"email": "rok@ipunkt.biz"
+			"name": "Malko Vladimirr",
+			"email": "vladimir.malko87@gmail.com"
 		}
 	],
 	"require": {
