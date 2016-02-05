@@ -6,13 +6,8 @@
 
 Add to your composer.json following lines
 
-	"repositories": [{
-	        "type": "vcs",
-	        "url": "https://github.com/vvMalko/subscriptions"
-	    }],
-
 	"require": {
-		"ipunkt/subscriptions": "dev-master"
+		"vvmalko/subscriptions": "dev-master"
 	}
 
 Run `php artisan vendor:publish`
