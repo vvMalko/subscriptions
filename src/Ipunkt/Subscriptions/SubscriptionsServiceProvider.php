@@ -1,5 +1,6 @@
 <?php namespace Ipunkt\Subscriptions;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Ipunkt\Subscriptions\Plans\PlanRepository;
 
@@ -17,17 +18,16 @@ class SubscriptionsServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->package('ipunkt/subscriptions');
+		$this->publishes([
+		    dirname(dirname(dirname(__FILE__))) . '/config/plans.php' =>  config_path('plans.php'),
+		]);
 
-		/** @var \Illuminate\Config\Repository $config */
-		$config = $this->app['config'];
 
-		$this->app->bind('Ipunkt\Subscriptions\Plans\PlanRepository', function () use ($config) {
-			$repository = new PlanRepository($config->get('subscriptions::plans'));
-			$repository->setDefaultPlan($config->get('subscriptions::defaults.plan'));
+		$this->publishes([
+		   dirname(dirname(dirname(__FILE__))) . '/migrations/' => base_path('/database/migrations')
+		], 'migrations');
 
-			return $repository;
-		});
+
 	}
 
 	/**
@@ -37,6 +37,18 @@ class SubscriptionsServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+        /** @var \Illuminate\Config\Repository $config */
+        $plans = config('ipunkt.plans');
+        $default_plan = config('ipunkt.defaults');
+
+        $this->app->bind('Ipunkt\Subscriptions\Plans\PlanRepository', function () use($plans,$default_plan)
+        {
+            $repository = new PlanRepository($plans);
+            $repository->setDefaultPlan($default_plan);
+
+            return $repository;
+        });
+
 	}
 
 	/**
