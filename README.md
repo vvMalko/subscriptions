@@ -6,19 +6,24 @@
 
 Add to your composer.json following lines
 
+"repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/vvMalko/subscriptions"
+    }],
+
 	"require": {
-		"ipunkt/subscriptions": "~0.1"
+		"ipunkt/subscriptions": "dev-master"
 	}
 
-Run `php artisan config:publish ipunkt/subscriptions`
+Run `php artisan vendor:publish`
 
-Then edit `plans.php` in `app/config/packages/ipunkt/subscriptions` to your needs. All known plans are still in there.
+Then edit `plans.php` in `config/` to your needs. All known plans are still in there.
 
-Add `'Ipunkt\Subscriptions\SubscriptionsServiceProvider',` to `providers` in `app/config/app.php`.
+Add `Ipunkt\Subscriptions\SubscriptionsServiceProvider::class,` to `providers` in `app/config/app.php`.
 
-Add `'Subscription' => 'Ipunkt\Subscriptions\SubscriptionsFacade',` to `aliases` in `app/config/app.php`.
+Add `'Subscription' => Ipunkt\Subscriptions\SubscriptionsFacade::class,,` to `aliases` in `app/config/app.php`.
 
-Run `php artisan migrate --package=ipunkt/subscriptions` to migrate the necessary database tables.
+Run `php artisan migrate` to migrate the necessary database tables.
 
 ## Configuration
 
