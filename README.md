@@ -1,15 +1,15 @@
-# Subscription handling package for Laravel 4.x applications
+# Subscription handling package for Laravel 5.x applications
 
-[![Latest Stable Version](https://poser.pugx.org/ipunkt/subscriptions/v/stable.svg)](https://packagist.org/packages/ipunkt/subscriptions) [![Latest Unstable Version](https://poser.pugx.org/ipunkt/subscriptions/v/unstable.svg)](https://packagist.org/packages/ipunkt/subscriptions) [![License](https://poser.pugx.org/ipunkt/subscriptions/license.svg)](https://packagist.org/packages/ipunkt/subscriptions) [![Total Downloads](https://poser.pugx.org/ipunkt/subscriptions/downloads.svg)](https://packagist.org/packages/ipunkt/subscriptions)
+[![Latest Stable Version](https://poser.pugx.org/vvMalko/subscriptions/v/stable.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![Latest Unstable Version](https://poser.pugx.org/vvMalko/subscriptions/v/unstable.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![License](https://poser.pugx.org/vvMalko/subscriptions/license.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![Total Downloads](https://poser.pugx.org/vvMalko/subscriptions/downloads.svg)](https://packagist.org/packages/vvMalko/subscriptions)
 
 ## Installation
 
 Add to your composer.json following lines
 
-"repositories": [{
-        "type": "vcs",
-        "url": "https://github.com/vvMalko/subscriptions"
-    }],
+	"repositories": [{
+	        "type": "vcs",
+	        "url": "https://github.com/vvMalko/subscriptions"
+	    }],
 
 	"require": {
 		"ipunkt/subscriptions": "dev-master"
