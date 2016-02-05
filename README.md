@@ -19,9 +19,9 @@ Run `php artisan vendor:publish`
 
 Then edit `plans.php` in `config/` to your needs. All known plans are still in there.
 
-Add `Ipunkt\Subscriptions\SubscriptionsServiceProvider::class,` to `providers` in `app/config/app.php`.
+Add `Ipunkt\Subscriptions\SubscriptionsServiceProvider::class,` to `providers` in `config/app.php`.
 
-Add `'Subscription' => Ipunkt\Subscriptions\SubscriptionsFacade::class,,` to `aliases` in `app/config/app.php`.
+Add `'Subscription' => Ipunkt\Subscriptions\SubscriptionsFacade::class,` to `aliases` in `config/app.php`.
 
 Run `php artisan migrate` to migrate the necessary database tables.
 
