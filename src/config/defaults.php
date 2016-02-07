@@ -10,5 +10,5 @@
  *
  */
 return [
-	'plan' => '',
+	'plan' => 'EXAMPLE-PLAN',
 ];

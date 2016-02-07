@@ -32,8 +32,8 @@
  *
  */
 return [
-/*
-	'PLAN-ID' => [
+
+	'EXAMPLE-PLAN' => [ //Plan ID
 		'name' => 'TRIAL',
 		'description' => 'Das ist ein Testvertrag.',
 		'subscription_break' => 0,
@@ -64,5 +64,5 @@ return [
 			],
 		],
 	],
-*/
+
 ];
