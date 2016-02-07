@@ -8,10 +8,11 @@ porting from laravel 4 package. Original here: [ipunkt/subscriptions](https://gi
 
 Add to your composer.json following lines
 
-
+```json
 	"require": {
 		"vvmalko/subscriptions": "dev-master"
 	}
+```
 
 Run `php artisan vendor:publish`
 
