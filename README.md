@@ -136,10 +136,10 @@ For creating a subscription you have to give the `Plan` or the id of a plan and 
 The `$subscriber` is the entity the subscription belongs to. This can be any morphable eloquent object.
 
 After a subscription was created successfully an event of type
- `Ipunkt\Subscriptions\Subscription\Events\SubscriptionWasCreated` gets fired.
+ `vvMalko\Subscriptions\Subscription\Events\SubscriptionWasCreated` gets fired.
 
 The underlying repository controls for duplicates itself. So for existing subscriptions it will update the
- current subscription and fires an event of type `Ipunkt\Subscriptions\Subscription\Events\SubscriptionWasUpdated` 
+ current subscription and fires an event of type `vvMalko\Subscriptions\Subscription\Events\SubscriptionWasUpdated` 
  instead.
 
 You can upgrade the subscription to any other plan. The same method `Subscription::create()` handles this upgrade.
@@ -287,7 +287,7 @@ Nearly the same you have to do for extending or upgrading a plan. You can use th
 ### Registering a Listener
 
 	# in your app/listeners.php for example
-	Event::listen('Ipunkt.Subscriptions.Subscription.Events.*', 'App\Subscriptions\Listeners\EmailNotifier');
+	Event::listen('vvMalko.Subscriptions.Subscription.Events.*', 'App\Subscriptions\Listeners\EmailNotifier');
 
 	//  we use the laracasts/commander package, so you can inform you about a listener too
 	class EmailNotifier extends Laracasts\Commander\Events\EventListener
