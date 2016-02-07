@@ -19,7 +19,8 @@ class SubscriptionsServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		$this->publishes([
-		    dirname(dirname(dirname(__FILE__))) . '/config/plans.php' =>  config_path('plans.php'),
+		    dirname(dirname(dirname(__FILE__))) . '/config/plans.php' =>  config_path('vvmalko/plans.php'),
+		    dirname(dirname(dirname(__FILE__))) . '/config/defaults.php' =>  config_path('vvmalko/defaults.php'),
 		]);
 
 

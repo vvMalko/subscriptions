@@ -164,16 +164,18 @@ class SubscriptionManager
      *
      * @param SubscriptionSubscriber $subscriber
      *
-     * @return subscription end status|true or false
+     * @return null|true|false
      *
      * */
     public function expired(SubscriptionSubscriber $subscriber)
     {
-        if ($this->subscription->subscription_ends_at && $this->billingIsActive() == "active") {
-            return strtotime($this->subscription->subscription_ends_at) < time();
+        if ($this->subscription === null || ! $this->subscription->isSubscribedTo($subscriber)) {
+            $subscription = $this->subscriptionRepository->findBySubscriber($subscriber);
+            if (null === $subscription)
+                return null;
         }
 
-        return true;
+        return strtotime($this->subscription->subscription_ends_at) < time();
     }
 
 	/**
