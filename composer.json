@@ -25,5 +25,5 @@
 			"vvMalko\\Subscriptions\\": "src/vvMalko/Subscriptions"
 		}
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }
