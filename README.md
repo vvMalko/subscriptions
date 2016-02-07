@@ -1,4 +1,4 @@
-#porting from laravel 4 package. Original here: [ipunkt/subscriptions](https://github.com/ipunkt/subscriptions)
+porting from laravel 4 package. Original here: [ipunkt/subscriptions](https://github.com/ipunkt/subscriptions)
 
 # Subscriptions package for Laravel 5.x applications
 
