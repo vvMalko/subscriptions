@@ -1,8 +1,9 @@
 {
-	"name": "ipunkt/subscriptions",
+	"name": "vvMalko/subscriptions",
 	"description": "Subscription handling package for laravel 5 applications",
 	"keywords": [
 		"laravel",
+		"laravel5",
 		"php",
 		"subscriptions",
 		"plan"
@@ -10,8 +11,8 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Robert Kummer",
-			"email": "rok@ipunkt.biz"
+			"name": "Vladimir Malko",
+			"email": "vladimir.malko87@gmail.com"
 		}
 	],
 	"require": {
@@ -21,7 +22,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Ipunkt\\Subscriptions\\": "src/Ipunkt/Subscriptions"
+			"vvMalko\\Subscriptions\\": "src/vvMalko/Subscriptions"
 		}
 	},
 	"minimum-stability": "stable"

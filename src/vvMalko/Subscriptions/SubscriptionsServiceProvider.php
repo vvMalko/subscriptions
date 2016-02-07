@@ -1,8 +1,8 @@
-<?php namespace Ipunkt\Subscriptions;
+<?php namespace vvMalko\Subscriptions;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use Ipunkt\Subscriptions\Plans\PlanRepository;
+use vvMalko\Subscriptions\Plans\PlanRepository;
 
 class SubscriptionsServiceProvider extends ServiceProvider
 {
@@ -38,16 +38,18 @@ class SubscriptionsServiceProvider extends ServiceProvider
 	public function register()
 	{
         /** @var \Illuminate\Config\Repository $config */
-        $plans = config('ipunkt.plans');
-        $default_plan = config('ipunkt.defaults');
+        $plans = config('vvmalko.plans');
+        $default_plan = config('vvmalko.defaults');
 
-        $this->app->bind('Ipunkt\Subscriptions\Plans\PlanRepository', function () use($plans,$default_plan)
+        $this->app->bind('vvMalko\Subscriptions\Plans\PlanRepository', function () use($plans,$default_plan)
         {
             $repository = new PlanRepository($plans);
             $repository->setDefaultPlan($default_plan);
 
             return $repository;
         });
+
+        $this->app->bind('vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber');
 
 	}
 

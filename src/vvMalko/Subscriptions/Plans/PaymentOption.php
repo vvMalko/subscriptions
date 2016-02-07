@@ -1,15 +1,15 @@
-<?php namespace Ipunkt\Subscriptions\Plans;
+<?php namespace vvMalko\Subscriptions\Plans;
 
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class PaymentOption
  *
  * Payment option for a plan
  *
- * @package Ipunkt\Subscriptions\Plans
+ * @package vvMalko\Subscriptions\Plans
  */
-class PaymentOption implements ArrayableInterface
+class PaymentOption implements Arrayable
 {
 	/**
 	 * payment
@@ -38,6 +38,13 @@ class PaymentOption implements ArrayableInterface
 	 * @var int
 	 */
 	private $days;
+
+    /**
+     * trial days
+     *
+     * @var int
+     */
+    private $trial;
 
 	/**
 	 * payment methods

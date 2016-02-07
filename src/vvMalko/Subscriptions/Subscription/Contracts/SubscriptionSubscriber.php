@@ -1,9 +1,9 @@
-<?php namespace Ipunkt\Subscriptions\Subscription\Contracts;
+<?php namespace vvMalko\Subscriptions\Subscription\Contracts;
 
 /**
  * Interface SubscriptionSubscriber
  *
- * @package Ipunkt\Subscriptions\Subscription\Contracts
+ * @package vvMalko\Subscriptions\Subscription\Contracts
  */
 interface SubscriptionSubscriber
 {

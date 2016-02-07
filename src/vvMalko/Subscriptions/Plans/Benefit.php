@@ -1,15 +1,15 @@
-<?php namespace Ipunkt\Subscriptions\Plans;
+<?php namespace vvMalko\Subscriptions\Plans;
 
-use Illuminate\Support\Contracts\ArrayableInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class Benefit
  *
  * Benefit entity
  *
- * @package Ipunkt\Subscriptions\Plans
+ * @package vvMalko\Subscriptions\Plans
  */
-class Benefit implements ArrayableInterface
+class Benefit implements Arrayable
 {
 	/**
 	 * benefit feature

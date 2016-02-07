@@ -1,32 +1,32 @@
-<?php namespace Ipunkt\Subscriptions\Subscription\Events;
+<?php namespace vvMalko\Subscriptions\Subscription\Events;
 
-use Ipunkt\Subscriptions\Subscription\Period;
+use vvMalko\Subscriptions\Subscription\Period;
 
 /**
  * Class SubscriptionWasPaid
  *
  * Event will be fired when a subscription was paid (a period was paid)
  *
- * @package Ipunkt\Subscriptions\Subscription\Events
+ * @package vvMalko\Subscriptions\Subscription\Events
  */
 class SubscriptionWasPaid
 {
 	/**
 	 * paid period
 	 *
-	 * @var \Ipunkt\Subscriptions\Subscription\Period
+	 * @var \vvMalko\Subscriptions\Subscription\Period
 	 */
 	public $period;
 
 	/**
 	 * paid subscription
 	 *
-	 * @var \Ipunkt\Subscriptions\Subscription\Subscription
+	 * @var \vvMalko\Subscriptions\Subscription\Subscription
 	 */
 	public $subscription;
 
 	/**
-	 * @param \Ipunkt\Subscriptions\Subscription\Period $period
+	 * @param \vvMalko\Subscriptions\Subscription\Period $period
 	 */
 	public function __construct(Period $period)
 	{

@@ -1,4 +1,4 @@
-<?php namespace Ipunkt\Subscriptions\Plans;
+<?php namespace vvMalko\Subscriptions\Plans;
 
 use Illuminate\Support\Collection;
 
@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
  *
  * Repository for plans
  *
- * @package Ipunkt\Subscriptions\Plans
+ * @package vvMalko\Subscriptions\Plans
  */
 class PlanRepository
 {
@@ -54,9 +54,16 @@ class PlanRepository
 	 */
 	public function find($id)
 	{
-		return $this->plans->first(function ($key, $value) use ($id) {
+		/*return $this->plans->first(function ($key, $value) use ($id) {
 			return strtoupper($id) === $key;
-		});
+		}); */
+        foreach ($this->plans as $plan) {
+            if ($plan->id == $id) {
+                return $plan;
+            }
+        }
+
+        return null;
 	}
 
 	/**

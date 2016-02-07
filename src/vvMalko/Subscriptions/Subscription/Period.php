@@ -1,8 +1,8 @@
-<?php namespace Ipunkt\Subscriptions\Subscription;
+<?php namespace vvMalko\Subscriptions\Subscription;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Ipunkt\Subscriptions\Subscription\Events\SubscriptionWasPaid;
+use vvMalko\Subscriptions\Subscription\Events\SubscriptionWasPaid;
 use Laracasts\Commander\Events\EventGenerator;
 
 /**
@@ -16,19 +16,19 @@ use Laracasts\Commander\Events\EventGenerator;
  * @property string $invoice_reference
  * @property float $invoice_sum
  * @property \Carbon\Carbon $invoice_date
- * @property-read \Ipunkt\Subscriptions\Subscription\Subscription $subscription
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period
+ * @property-read \vvMalko\Subscriptions\Subscription\Subscription $subscription
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period
  *     whereSubscriptionId($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereStart($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereEnd($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereState($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereStart($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereEnd($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereState($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period
  *     whereInvoiceReference($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereInvoiceSum($value)
- * @method static \Illuminate\Database\Query\Builder|\Ipunkt\Subscriptions\Subscription\Period whereInvoiceDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereInvoiceSum($value)
+ * @method static \Illuminate\Database\Query\Builder|\vvMalko\Subscriptions\Subscription\Period whereInvoiceDate($value)
  *
- * @package Ipunkt\Subscriptions\Subscription
+ * @package vvMalko\Subscriptions\Subscription
  */
 class Period extends Model
 {
@@ -88,7 +88,7 @@ class Period extends Model
 	 */
 	public function subscription()
 	{
-		return $this->belongsTo('Ipunkt\Subscriptions\Subscription\Subscription');
+		return $this->belongsTo('vvMalko\Subscriptions\Subscription\Subscription');
 	}
 
 	/**

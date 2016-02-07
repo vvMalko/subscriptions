@@ -1,19 +1,19 @@
-<?php namespace Ipunkt\Subscriptions\Subscription;
+<?php namespace vvMalko\Subscriptions\Subscription;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-use Ipunkt\Subscriptions\Plans\PaymentOption;
-use Ipunkt\Subscriptions\Plans\Plan;
-use Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
-use Ipunkt\Subscriptions\Subscription\Events\SubscriptionWasCreated;
-use Ipunkt\Subscriptions\Subscription\Events\SubscriptionWasUpdated;
+use vvMalko\Subscriptions\Plans\PaymentOption;
+use vvMalko\Subscriptions\Plans\Plan;
+use vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
+use vvMalko\Subscriptions\Subscription\Events\SubscriptionWasCreated;
+use vvMalko\Subscriptions\Subscription\Events\SubscriptionWasUpdated;
 
 /**
  * Class SubscriptionRepository
  *
  * Repository for accessing the subscriptions
  *
- * @package Ipunkt\Subscriptions\Subscription
+ * @package vvMalko\Subscriptions\Subscription
  */
 class SubscriptionRepository
 {
@@ -23,12 +23,12 @@ class SubscriptionRepository
 	/**
 	 * subscription model
 	 *
-	 * @var \Ipunkt\Subscriptions\Subscription\Subscription
+	 * @var \vvMalko\Subscriptions\Subscription\Subscription
 	 */
 	private $subscription;
 
 	/**
-	 * @param \Ipunkt\Subscriptions\Subscription\Subscription $subscription
+	 * @param \vvMalko\Subscriptions\Subscription\Subscription $subscription
 	 */
 	public function __construct(Subscription $subscription)
 	{
@@ -38,11 +38,11 @@ class SubscriptionRepository
 	/**
 	 * creates a new subscription (or updates an existing one)
 	 *
-	 * @param \Ipunkt\Subscriptions\Plans\Plan $plan
-	 * @param \Ipunkt\Subscriptions\Plans\PaymentOption $paymentOption
-	 * @param \Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
+	 * @param \vvMalko\Subscriptions\Plans\Plan $plan
+	 * @param \vvMalko\Subscriptions\Plans\PaymentOption $paymentOption
+	 * @param \vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
 	 *
-	 * @return \Ipunkt\Subscriptions\Subscription\Subscription
+	 * @return \vvMalko\Subscriptions\Subscription\Subscription
 	 */
 	public function create(Plan $plan, PaymentOption $paymentOption, SubscriptionSubscriber $subscriber)
 	{
@@ -70,12 +70,12 @@ class SubscriptionRepository
 	/**
 	 * upgrading an existing subscription
 	 *
-	 * @param \Ipunkt\Subscriptions\Subscription\Subscription $subscription
-	 * @param \Ipunkt\Subscriptions\Plans\Plan $plan
-	 * @param \Ipunkt\Subscriptions\Plans\PaymentOption $paymentOption
-	 * @param \Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
+	 * @param \vvMalko\Subscriptions\Subscription\Subscription $subscription
+	 * @param \vvMalko\Subscriptions\Plans\Plan $plan
+	 * @param \vvMalko\Subscriptions\Plans\PaymentOption $paymentOption
+	 * @param \vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
 	 *
-	 * @return \Ipunkt\Subscriptions\Subscription\Subscription
+	 * @return \vvMalko\Subscriptions\Subscription\Subscription
 	 */
 	public function upgrade(Subscription $subscription, Plan $plan, PaymentOption $paymentOption, SubscriptionSubscriber $subscriber)
 	{
@@ -106,7 +106,7 @@ class SubscriptionRepository
 	 *
 	 * @param SubscriptionSubscriber $subscriber
 	 *
-	 * @return \Ipunkt\Subscriptions\Subscription\Subscription|null
+	 * @return \vvMalko\Subscriptions\Subscription\Subscription|null
 	 */
 	public function findBySubscriber(SubscriptionSubscriber $subscriber)
 	{
@@ -120,7 +120,7 @@ class SubscriptionRepository
 	/**
 	 * returns ordered collection of all subscriptions for a subscriber
 	 *
-	 * @param \Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
+	 * @param \vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber $subscriber
 	 *
 	 * @return array|static[]|Subscription[]|Collection
 	 */
@@ -152,13 +152,13 @@ class SubscriptionRepository
 	/**
 	 * saves a subscription to database
 	 *
-	 * @param \Ipunkt\Subscriptions\Subscription\Subscription $subscription
-	 * @param \Ipunkt\Subscriptions\Plans\Plan $plan
-	 * @param \Ipunkt\Subscriptions\Plans\PaymentOption $paymentOption
+	 * @param \vvMalko\Subscriptions\Subscription\Subscription $subscription
+	 * @param \vvMalko\Subscriptions\Plans\Plan $plan
+	 * @param \vvMalko\Subscriptions\Plans\PaymentOption $paymentOption
 	 * @param \Carbon\Carbon $startDate
 	 * @param string $mode
 	 *
-	 * @return \Ipunkt\Subscriptions\Subscription\Subscription
+	 * @return \vvMalko\Subscriptions\Subscription\Subscription
 	 */
 	private function saveSubscription(Subscription $subscription, Plan $plan, PaymentOption $paymentOption, Carbon $startDate = null, $mode)
 	{

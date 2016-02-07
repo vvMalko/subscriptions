@@ -1,11 +1,11 @@
-<?php namespace Ipunkt\Subscriptions\Subscription\Events;
+<?php namespace vvMalko\Subscriptions\Subscription\Events;
 
 /**
  * Class SubscriptionWasUpdated
  *
  * Event was fired when subscription updated
  *
- * @package Ipunkt\Subscriptions\Subscription\Events
+ * @package vvMalko\Subscriptions\Subscription\Events
  */
 class SubscriptionWasUpdated extends SubscriptionWasCreated
 {

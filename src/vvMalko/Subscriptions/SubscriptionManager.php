@@ -1,19 +1,19 @@
-<?php namespace Ipunkt\Subscriptions;
+<?php namespace vvMalko\Subscriptions;
 
 use Illuminate\Support\Collection;
-use Ipunkt\Subscriptions\Plans\PaymentOption;
-use Ipunkt\Subscriptions\Plans\Plan;
-use Ipunkt\Subscriptions\Plans\PlanRepository;
-use Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
-use Ipunkt\Subscriptions\Subscription\Subscription;
-use Ipunkt\Subscriptions\Subscription\SubscriptionRepository;
+use vvMalko\Subscriptions\Plans\PaymentOption;
+use vvMalko\Subscriptions\Plans\Plan;
+use vvMalko\Subscriptions\Plans\PlanRepository;
+use vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
+use vvMalko\Subscriptions\Subscription\Subscription;
+use vvMalko\Subscriptions\Subscription\SubscriptionRepository;
 
 /**
  * Class SubscriptionManager
  *
  * Subscription manager handles all subscription stuff
  *
- * @package Ipunkt\Subscriptions
+ * @package vvMalko\Subscriptions
  */
 class SubscriptionManager
 {
@@ -128,7 +128,7 @@ class SubscriptionManager
 	 * @param SubscriptionSubscriber $subscriber
 	 * @param string $feature
 	 *
-	 * @return \Ipunkt\Subscriptions\Plans\Benefit|null
+	 * @return \vvMalko\Subscriptions\Plans\Benefit|null
 	 */
 	public function feature(SubscriptionSubscriber $subscriber, $feature)
 	{
@@ -158,6 +158,23 @@ class SubscriptionManager
 
 		return $this->subscription;
 	}
+
+    /**
+     * returns subscription date expired
+     *
+     * @param SubscriptionSubscriber $subscriber
+     *
+     * @return subscription end status|true or false
+     *
+     * */
+    public function expired(SubscriptionSubscriber $subscriber)
+    {
+        if ($this->subscription->subscription_ends_at && $this->billingIsActive() == "active") {
+            return strtotime($this->subscription->subscription_ends_at) < time();
+        }
+
+        return true;
+    }
 
 	/**
 	 * returns all subscriptions for a subscriber

@@ -1,4 +1,4 @@
-<?php namespace Ipunkt\Subscriptions;
+<?php namespace vvMalko\Subscriptions;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Facade;
  *
  *
  *
- * @package Ipunkt\Subscriptions
+ * @package vvMalko\Subscriptions
  */
 class SubscriptionsFacade extends Facade
 {
@@ -18,6 +18,6 @@ class SubscriptionsFacade extends Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return 'Ipunkt\Subscriptions\SubscriptionManager';
+		return 'vvMalko\Subscriptions\SubscriptionManager';
 	}
 }

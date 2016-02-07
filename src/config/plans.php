@@ -52,13 +52,13 @@ return [
 		'payments' => [
 			[
 				'price' => 1,           // for 1.00
-				'quantity' => 12,       // in 12-times
+				'quantity' => 12,       // in 12-times(examle month)
 				'days' => 30,           // of 30-days
 				'methods' => ['paypal'],
 			],
 			[
 				'price' => 2,           // for 2.00
-				'quantity' => 12,       // in 12-times
+				'quantity' => 12,       // in 12-times(examle month)
 				'days' => 30,           // of 30-days
 				'methods' => ['paypal', 'invoice'],
 			],

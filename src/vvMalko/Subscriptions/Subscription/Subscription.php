@@ -1,8 +1,8 @@
-<?php namespace Ipunkt\Subscriptions\Subscription;
+<?php namespace vvMalko\Subscriptions\Subscription;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Ipunkt\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
+use vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
 use Laracasts\Commander\Events\EventGenerator;
 
 /**
@@ -27,9 +27,9 @@ use Laracasts\Commander\Events\EventGenerator;
  * @method static \Illuminate\Database\Query\Builder|Subscription whereSubscriptionEndsAt($value)
  * @method static \Illuminate\Database\Query\Builder|Subscription whereState($value)
  * @property-read \Illuminate\Database\Eloquent\Model $subscriber
- * @property-read \Ipunkt\Subscriptions\Subscription\Period[] $periods
+ * @property-read \vvMalko\Subscriptions\Subscription\Period[] $periods
  *
- * @package Ipunkt\Subscriptions\Subscription
+ * @package vvMalko\Subscriptions\Subscription
  */
 class Subscription extends Model
 {
@@ -69,7 +69,7 @@ class Subscription extends Model
 	 */
 	public function periods()
 	{
-		return $this->hasMany('\Ipunkt\Subscriptions\Subscription\Period');
+		return $this->hasMany('\vvMalko\Subscriptions\Subscription\Period');
 	}
 
 	/**
