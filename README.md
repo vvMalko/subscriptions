@@ -90,6 +90,59 @@ The optional property `'subscription_break` can be used to prevent a subscriber 
 For setting a default plan to all subscribers you can use the `src/config/defaults.php` and set the id for the default
  plan. So every call on plan-based feature checking will resolve this default plan when the subscriber has no plan yet.
 
+#### Customer Model Setup (for example `User`)
+```php
+use vvMalko\Subscriptions\Subscription\Contracts\SubscriptionSubscriber;
+
+class User extends Model implements SubscriptionSubscriber
+{
+	...
+	...
+	...
+	
+	public function getSubscriberId()
+    	{
+        	return $this->id;
+    	}
+
+    public function getSubscriberModel()
+    {
+        return $this->table; //model_class set us `User`
+    }
+}
+```
+
+#### Controller Setup (for example `SubscriptionsController`) 
+```php
+use vvMalko\Subscriptions\SubscriptionsFacade as Subscription;
+
+class SubscriptionsController extends Controller
+{
+	...
+	...
+	...
+
+	private $subscriber;
+
+	public function __construct()
+	{
+	    $this->subscriber = Auth::user();
+	}
+
+	//get user(subscriber) plans
+	public function plans()
+    	{
+            $plan = Subscription::current($this->subscriber);
+            return view('plans');
+    	}
+	
+	
+}
+```
+
+For setting a default plan to all subscribers you can use the `src/config/defaults.php` and set the id for the default
+ plan. So every call on plan-based feature checking will resolve this default plan when the subscriber has no plan yet.
+
 ## Usage
 
 ### Getting all plans
