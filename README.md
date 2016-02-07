@@ -1,4 +1,6 @@
-# Subscription handling package for Laravel 5.x applications
+#porting from laravel 4 package. Original here: [ipunkt/subscriptions](https://github.com/ipunkt/subscriptions)
+
+# Subscriptions package for Laravel 5.x applications
 
 [![Latest Stable Version](https://poser.pugx.org/vvMalko/subscriptions/v/stable.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![Latest Unstable Version](https://poser.pugx.org/vvMalko/subscriptions/v/unstable.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![License](https://poser.pugx.org/vvMalko/subscriptions/license.svg)](https://packagist.org/packages/vvMalko/subscriptions) [![Total Downloads](https://poser.pugx.org/vvMalko/subscriptions/downloads.svg)](https://packagist.org/packages/vvMalko/subscriptions)
 
