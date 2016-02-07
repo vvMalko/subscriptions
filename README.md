@@ -26,7 +26,7 @@ Run `php artisan migrate` to migrate the necessary database tables.
 ## Configuration
 
 ### Plan configuration
-
+```php
 	//  @see src/config/plans.php
 	return [
     	'PLAN-ID' => [
@@ -35,6 +35,7 @@ Run `php artisan migrate` to migrate the necessary database tables.
     		'subscription_break' => 0,  // optional for preventing a subscription for X days after last subscription ends
     	],
     ];
+```
 
 The optional property `'subscription_break` can be used to prevent a subscriber to subscribe to this plan before a 
  configured count of days will be gone. This is for example to have a TRIAL plan which can be subscribed to only once 
@@ -42,7 +43,8 @@ The optional property `'subscription_break` can be used to prevent a subscriber 
 
 #### Benefit configuration for a plan
 
-	//  @see src/config/plans.php
+```php
+//  @see src/config/plans.php
 	return [
     	'PLAN-ID' => [
     		// [..]    		
@@ -61,9 +63,10 @@ The optional property `'subscription_break` can be used to prevent a subscriber 
 			],
     	],
     ];
+```
 
 #### Payment options for a plan
-
+```php
 	//  @see src/config/plans.php
     return [
         'PLAN-ID' => [
@@ -84,6 +87,7 @@ The optional property `'subscription_break` can be used to prevent a subscriber 
             ],
         ],
     ];
+```
 
 #### Choosing a default plan for all subscribers
 
@@ -146,45 +150,52 @@ For setting a default plan to all subscribers you can use the `src/config/defaul
 ## Usage
 
 ### Getting all plans
-
+```php
 	/** @var Plan[] $plans */
 	$plans = Subscription::plans();
-	
+```	
 
 If you use the subscription break in your plan configuration, fetch all plans with the `selectablePlans` method. This 
  checks the last subscription for each breaking plan.
-
+```php
 	/** @var Plan[] $plans */
 	$plans = Subscription::selectablePlans($this->user);
+```
 
 ### Getting the current plan for a subscriber
-
+```php
 	/** @var Plan|null $plan */
 	$plan = Subscription::plan($subscriber);
+```
 
 ### Does a subscription already exists for a subscriber
-
+```php
 	Subscription::exists($subscriber); // returns true when a subscription exists
+```
 
 ### Each plan can have benefits (features)
-
+```php
 	$plan->can('feature');               // returns true or false
 	$plan->can('countable-feature', 14); // returns true or false
+```
 
 Or use the `Subscription` facade instead to check against current subscription plan for a subscriber. This is recommended:
-
+```php
 	Subscription::can($subscriber, 'feature');               // returns true or false
 	Subscription::can($subscriber, 'countable-feature', 14); // returns true or false
+```
 
 ### Getting all possible payment options for a plan
-
+```php
 	/** @var PaymentOption[] $paymentOptions */
 	$paymentOptions = $plan->paymentOptions();
+```
 
 ### Creating a new subscription
-
+```php
 	/** creating a subscription for a subscriber, maybe the current authenticated user */
 	$subscription = Subscription::create($plan, $paymentOption, SubscriptionSubscriber $subscriber);
+```
 
 For creating a subscription you have to give the `Plan` or the id of a plan and the selected `PaymentOption` 
  or the identifier for the payment option.
@@ -203,24 +214,28 @@ The fired events have both the current subscription, the selected plan and the p
  So you can listen on these events and do your own stuff.
 
 ### Getting the current subscription for a subscriber
-
+```php
 	/** @var Subscription|null $subscription */
 	$subscription = Subscription::current($subscriber);
+```
 
 ### Check subscriber on a Trial
-
+```php
 	/** be careful because current() can return null when no subscription existing */
 	$onTrial = Subscription::current($subscriber)->onTrial();
+```
 
 ### Check subscription paid
-
+```php
 	$subscription = Subscription::current($subscriber);
 	$isPaid = $subscription->paid(); // or Subscription::paid($subscriber);
+```
 
 ### Getting all periods for a subscription
-
+```php
 	/** @var Period[] $periods */
 	$periods = $subscription->periods;
+```
 
 
 ## Userland code
@@ -228,7 +243,7 @@ The fired events have both the current subscription, the selected plan and the p
 ### Fitting in you controllers
 
 We use the `laracasts/commander` package for handling business commands and events.
-
+```php
 	class SubscriptionsController extends \Controller
 	{
 		/**
@@ -292,10 +307,11 @@ We use the `laracasts/commander` package for handling business commands and even
             return Redirect::route('subscriptions.index');
         }
 	}
+```
 
 And the corresponding command `CreateSubscriptionCommandHandler` is here (The `CreateSubscriptionCommand` is only a DTO
  for the input values):
-
+```php
 	class CreateSubscriptionCommandHandler implements Laracasts\Commander\CommandHandler
 	{
 		use Laracasts\Commander\Events\DispatchableTrait;
@@ -335,12 +351,13 @@ And the corresponding command `CreateSubscriptionCommandHandler` is here (The `C
             $this->dispatchEventsFor($subscription);
         }
 	}
+```
 
 Nearly the same you have to do for extending or upgrading a plan. You can use the same command, handler and controller 
  action. The subscription repository handles automatically an update or create for a subscription plan.
 
 ### Registering a Listener
-
+```php
 	# in your app/listeners.php for example
 	Event::listen('vvMalko.Subscriptions.Subscription.Events.*', 'App\Subscriptions\Listeners\EmailNotifier');
 
@@ -369,4 +386,4 @@ Nearly the same you have to do for extending or upgrading a plan. You can use th
             //  plan or a subscription was extended to get longer running)
         }
     }
-
+```
