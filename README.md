@@ -16,7 +16,7 @@ Add to your composer.json following lines
 
 Run `php artisan vendor:publish`
 
-Then edit `plans.php` in `config/` to your needs. All known plans are still in there.
+Then edit `plans.php` and `defaults.php` in `config/vvmalko` to your needs. All known plans are still in there.
 
 Add `vvMalko\Subscriptions\SubscriptionsServiceProvider::class,` to `providers` in `config/app.php`.
 
@@ -172,6 +172,11 @@ If you use the subscription break in your plan configuration, fetch all plans wi
 ### Does a subscription already exists for a subscriber
 ```php
 	Subscription::exists($subscriber); // returns true when a subscription exists
+```
+
+### Does a subscription expired? Compared period time and current time
+```php
+	Subscription::expired($subscriber); // returns true|false or null when a subscription not exists
 ```
 
 ### Each plan can have benefits (features)
